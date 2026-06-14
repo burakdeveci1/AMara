@@ -1,44 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Basit Oda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMara Nakliyat Platformu | Hemen Teklif Al</title>
     <style>
-        body { font-family: sans-serif; text-align: center; background: #f0f2f5; }
-        #oda { border: 2px solid #333; width: 300px; margin: 20px auto; padding: 20px; background: white; border-radius: 15px; }
-        .oyuncu { background: #e1ffc7; margin: 5px; padding: 10px; border-radius: 5px; }
-    </style>
-</head>
-<body>
-
-    <h1>Sesli Oda Taslağı</h1>
-    
-    <div id="oda">
-        <h3>İçeridekiler</h3>
-        <div id="liste">
-            <p>Henüz kimse yok...</p>
-        </div>
-    </div>
-
-    <input type="text" id="isimInput" placeholder="Adını yaz...">
-    <button onclick="katil()">Odaya Gir</button>
-
-    <script>
-        function katil() {
-            let isim = document.getElementById('isimInput').value;
-            if(isim) {
-                let liste = document.getElementById('liste');
-                // Eğer ilk kişi giriyorsa "henüz kimse yok" yazısını sil
-                if(liste.innerHTML.includes("Henüz")) liste.innerHTML = "";
-                
-                // Yeni bir oyuncu kutusu oluştur
-                liste.innerHTML += <div class="oyuncu">🟢 ${isim}</div>;
-                document.getElementById('isimInput').value = ""; // Kutuyu temizle
-            } else {
-                alert("Lütfen bir isim yaz!");
-            }
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
         }
-    </script>
 
-</body>
-</html>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header Ayarları */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* İstenen Logo Formatı: AM büyük, ara küçük */
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-color);
+        }
+
+        /* Hero (Giriş) Alanı */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Ana İçerik ve Kartlar */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0,
